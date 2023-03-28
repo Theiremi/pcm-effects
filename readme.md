@@ -57,18 +57,18 @@ let resource = createAudioResource(encoder, {inputType: "opus"});//Create a Disc
 ## API
 
 ### `PCMEffects.Merge(type, ...streams)`
-*Merge two PCMEffects streams together, and return a new one with his own effects control.*
+Merge two PCMEffects streams together, and return a new one with his own effects control.
 
 **Warning** : The first stream should not interrupt transmission, because frames are synced based on it. If this stream cease to emit, sound of the others streams will not be processed
 
-__Example__ :
+<ins>Example</ins> :
 ```
 const pcm1 = new PCMEffects("s16le");
 const pcm2 = new PCMEffects("s16le");
 const new_pcm = PCMEffects.Merge("s16le", pcm1, pcm2);
 ```
 
-__Arguments__ :
+<ins>Arguments</ins> :
 - type : The stream type. Possibles values are listed in [Supported PCM stream type](#supported-pcm-stream-type)
 - streams : An indefinite list of PCMEffects streams
 
@@ -77,9 +77,9 @@ Initialize the PCM.
 
 The returned class extends [Transform](https://nodejs.org/api/stream.html#class-streamtransform), the class is also a readable and a writable stream.
 
-__Example__ : `const pcm = new PCMEffects("s16le")`
+<ins>Example</ins> : `const pcm = new PCMEffects("s16le")`
 
-__Arguments__ :
+<ins>Arguments</ins> :
 - type : The stream type. Possibles values are listed in [Supported PCM stream type](#supported-pcm-stream-type)
 
 ### `pcm.setVolume(level)`
@@ -87,9 +87,9 @@ Set the volume of the stream.
 
 This setting can be changed at any moment
 
-__Example__ : `pcm.setVolume(2)//The volume is double as original`
+<ins>Example : `pcm.setVolume(2)//The volume is double as original`
 
-__Arguments__ :
+<ins>Arguments</ins> :
 - level : Volume level. This value multiplies the actual volume (0.5 play at half the volume, 2 double it)
 
 ### `pcm.setDistortion(level)`
@@ -97,9 +97,9 @@ Set the distortion of the stream.
 
 This setting can be changed at any moment
 
-__Example__ : `pcm.setSaturation(60)//The volume is double as original`
+<ins>Example</ins> : `pcm.setSaturation(60)//The volume is double as original`
 
-__Arguments__ :
+<ins>Arguments</ins> :
 - level : Distortion threshold in percent. The volume is limited to this threshold
 
 
