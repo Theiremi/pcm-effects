@@ -1,10 +1,11 @@
 # PCM-Effects
-## Manipulate, transform and add effects to your PCM streams
+**Manipulate, transform and add effects to your PCM streams**
+
 This package simplifies the process of manipulating PCM streams.
 
 Using is package with [discord.js](https://github.com/discordjs/discord.js) is possible, as it was originally made for usage in discord bots.
 
-### Supported PCM stream type
+## Supported PCM stream type
 - [x] s8
 - [x] u8
 - [x] s16le
@@ -16,7 +17,7 @@ Using is package with [discord.js](https://github.com/discordjs/discord.js) is p
 - [ ] u32le
 - [ ] u32be
 
-### Usage example
+## Usage example
 ```
 import PCMEffects from 'pcm-effects';//Importing the module
 
@@ -53,50 +54,61 @@ let resource = createAudioResource(encoder, {inputType: "opus"});//Create a Disc
 //---//
 ```
 
-### API
+## API
 
+### `PCMEffects.Merge(type, ...streams)`
+Merge two PCMEffects streams together, and return a new one with his own effects control.
 
-#### `PCMEffects.Merge(type, ...streams)`
+**Warning** : The first stream should not interrupt transmission, because frames are synced based on it. If this stream cease to emit, sound of the others streams will not be processed
+
 Example :
 ```
 const pcm1 = new PCMEffects("s16le");
 const pcm2 = new PCMEffects("s16le");
 const new_pcm = PCMEffects.Merge("s16le", pcm1, pcm2);
 ```
-Merge two PCMEffects streams together, and return a new one with his own effects control.
-
-**Warning** : The first stream should not interrupt transmission, because frames are synced based on it. If this stream cease to emit, sound of the others streams will not be processed
 
 Arguments :
 - type : The stream type. Possibles values are listed in [Supported PCM stream type](#supported-pcm-stream-type)
 - streams : An indefinite list of PCMEffects streams
 
-#### `new PCMEffects(type)`
-Example : `const pcm = new PCMEffects("s16le")`
-
+### `new PCMEffects(type)`
 Initialize the PCM.
 
 The returned class extends [Transform](https://nodejs.org/api/stream.html#class-streamtransform), the class is also a readable and a writable stream.
 
+Example : `const pcm = new PCMEffects("s16le")`
+
 Arguments :
 - type : The stream type. Possibles values are listed in [Supported PCM stream type](#supported-pcm-stream-type)
 
-#### `pcm.setVolume(level)`
-Example : `pcm.setVolume(2)//The volume is double as original`
-
+### `pcm.setVolume(level)`
 Set the volume of the stream.
 
 This setting can be changed at any moment
 
+Example : `pcm.setVolume(2)//The volume is double as original`
+
 Arguments :
 - level : Volume level. This value multiplies the actual volume (0.5 play at half the volume, 2 double it)
 
-#### `pcm.setDistortion(level)`
-Example : `pcm.setSaturation(60)//The volume is double as original`
-
+### `pcm.setDistortion(level)`
 Set the distortion of the stream.
 
 This setting can be changed at any moment
 
+Example : `pcm.setSaturation(60)//The volume is double as original`
+
 Arguments :
 - level : Distortion threshold in percent. The volume is limited to this threshold
+
+
+## Help and disclaimer
+To have a preview of this module working, take a look at the discord bot [BaBot](https://top.gg/bot/1052586565395828778)([Source code](https://github.com/Theiremi/babot)).
+
+I'm far from being expert in programming and, especially in this package, my code is dirty and buggy.
+
+**But feel free :**
+- To report any issues in this Github repo
+- To make code changes
+- To contact me for any questions or suggestions (Theiremi#4835)

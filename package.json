@@ -1,6 +1,6 @@
 {
   "name": "pcm-effects",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Add effects on your PCM streams",
   "main": "index.js",
   "scripts": {
