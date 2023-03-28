@@ -1,0 +1,26 @@
+{
+  "name": "pcm-effects",
+  "version": "1.0.0",
+  "description": "Add effects on your PCM streams",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Theiremi/pcm-effects.git"
+  },
+  "keywords": [
+    "pcm",
+    "sound",
+    "effects",
+    "volume",
+    "discord.js"
+  ],
+  "author": "Theirémi",
+  "license": "GPL-3.0-only",
+  "bugs": {
+    "url": "https://github.com/Theiremi/pcm-effects/issues"
+  },
+  "homepage": "https://github.com/Theiremi/pcm-effects#readme"
+}
